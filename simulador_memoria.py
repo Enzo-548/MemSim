@@ -20,6 +20,7 @@ class TabelaPaginas:
         self.frames = [Frame(i) for i in range(num_frames)]
         self.total_page_faults = 0
         self.total_acessos = 0
+        self.ponteiro_fifo = 0  # Controla a ordem de chegada para o FIFO
 
     def acessar_pagina(self, numero_pagina):
         self.total_acessos += 1
@@ -46,17 +47,16 @@ class TabelaPaginas:
 
     def substituir_pagina(self, nova_pagina):
         """
-        TODO: IMPLEMENTAR PELO GRUPO
-        Esta função deve escolher uma página 'vítima' para ser substituída
-        com base no algoritmo escolhido (FIFO ou LRU), atualizar o frame
-        escolhido com a nova_pagina e retornar o ID do frame que foi alterado.
+        Substitui uma página usando a lógica do algoritmo FIFO.
         """
-        frame_escolhido_id = 0
+        # O frame escolhido é o mais antigo (apontado pelo ponteiro FIFO)
+        frame_escolhido_id = self.ponteiro_fifo
 
-        # Escreva a lógica do algoritmo aqui...
+        # Atualiza a página no frame
+        self.frames[frame_escolhido_id].pagina_alocada = nova_pagina
 
-        # Exemplo de atualização (substitua pela lógica real):
-        # self.frames[frame_escolhido_id].pagina_alocada = nova_pagina
+        # Avança o ponteiro de forma circular (módulo número de frames)
+        self.ponteiro_fifo = (self.ponteiro_fifo + 1) % len(self.frames)
 
         return frame_escolhido_id
 
