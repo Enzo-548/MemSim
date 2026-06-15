@@ -58,6 +58,8 @@ Um arquivo contendo somente a quantidade de frames e valido.
 Para cada algoritmo, o estado dos frames e exibido depois de cada acesso. Um
 Page Fault destaca somente o frame preenchido ou substituido.
 
+* EXEMPLO ILUSTRATIVO: 
+
 ```text
 ================ ALGORITMO FIFO ================
 Iniciando simulacao com 4 frames disponiveis.
@@ -92,6 +94,8 @@ Taxa de Page Faults: 66.67%
 ```
 
 Depois das simulacoes FIFO e LRU, o resumo segue este formato:
+
+* EXEMPLO ILUSTRATIVO: 
 
 ```text
 ================ COMPARACAO FINAL ================
