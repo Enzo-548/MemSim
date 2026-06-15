@@ -30,12 +30,17 @@ A primeira linha valida informa a quantidade de frames. As demais linhas
 informam, uma por linha, as paginas acessadas.
 
 ```text
-3
+4
 7
 0
 1
 2
 ```
+
+Para o Grupo 02, o arquivo `entrada.txt` esta configurado com 4 frames. O
+mesmo valor e utilizado nas simulacoes FIFO e LRU. O programa tambem aceita
+outros tamanhos de memoria em arquivos de teste, pois a quantidade e lida da
+primeira linha.
 
 Linhas vazias e linhas iniciadas por `#` sao ignoradas. A quantidade de frames
 deve ser maior que zero, e as paginas devem ser numeros inteiros nao negativos.
@@ -55,25 +60,28 @@ Page Fault destaca somente o frame preenchido ou substituido.
 
 ```text
 ================ ALGORITMO FIFO ================
-Iniciando simulacao com 3 frames disponiveis.
+Iniciando simulacao com 4 frames disponiveis.
 ========================================
 
 --- Passo 1: Acesso a Pagina 7 (Page Fault) ---
 [Frame 0]: Pagina 7 <-- Alterado
 [Frame 1]: [Vazio]
 [Frame 2]: [Vazio]
+[Frame 3]: [Vazio]
 ----------------------------------------
 
 --- Passo 2: Acesso a Pagina 0 (Page Fault) ---
 [Frame 0]: Pagina 7
 [Frame 1]: Pagina 0 <-- Alterado
 [Frame 2]: [Vazio]
+[Frame 3]: [Vazio]
 ----------------------------------------
 
 --- Passo 3: Acesso a Pagina 7 (Hit) ---
 [Frame 0]: Pagina 7
 [Frame 1]: Pagina 0
 [Frame 2]: [Vazio]
+[Frame 3]: [Vazio]
 ----------------------------------------
 
 ================ STATS FINAIS ================
@@ -89,8 +97,8 @@ Depois das simulacoes FIFO e LRU, o resumo segue este formato:
 ================ COMPARACAO FINAL ================
 Algoritmo | Acessos | Page Faults | Taxa
 -----------------------------------------------
-FIFO      |      12 |          10 |  83.33%
-LRU       |      12 |           9 |  75.00%
+FIFO      |      12 |           7 |  58.33%
+LRU       |      12 |           6 |  50.00%
 -----------------------------------------------
 Vencedor: LRU
 =================================================
